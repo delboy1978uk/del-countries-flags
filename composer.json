@@ -1,0 +1,29 @@
+{
+    "name": "delboy1978uk/del-static-content",
+    "description": "Module with 235 countries and flags",
+    "type": "library",
+    "keywords": [
+        "zf2",
+        "flags",
+        "countries"
+    ],
+    "homepage": "https://github.com/delboy1978uk/del-flags",
+    "authors": [
+        {
+            "name": "Derek Stephen McLean",
+            "email": "delboy1978uk@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "zendframework/zendframework": "2.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "StaticContent": "src/"
+        },
+        "classmap": [
+            "./"
+        ]
+    }
+}
