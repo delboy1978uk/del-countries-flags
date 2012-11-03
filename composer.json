@@ -1,5 +1,5 @@
 {
-    "name": "delboy1978uk/del-static-content",
+    "name": "delboy1978uk/del-countries-flags",
     "description": "Module with 235 countries and flags",
     "type": "library",
     "keywords": [
@@ -7,7 +7,7 @@
         "flags",
         "countries"
     ],
-    "homepage": "https://github.com/delboy1978uk/del-flags",
+    "homepage": "https://github.com/delboy1978uk/del-countries-flags",
     "authors": [
         {
             "name": "Derek Stephen McLean",
