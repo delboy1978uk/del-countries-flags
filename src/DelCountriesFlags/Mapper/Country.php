@@ -37,7 +37,7 @@ class Country extends AbstractDbMapper implements CountryInterface
 	{
 		$select = $this->getSelect()
                        ->where(array($whatever => $value));
-
+            die($select);
         $entity = $this->select($select)->current();
         $this->getEventManager()->trigger('find', $this, array('entity' => $entity));
         return $entity;

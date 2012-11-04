@@ -1,3 +1,15 @@
+# ************************************************************
+# Sequel Pro SQL dump
+# Version 3408
+#
+# http://www.sequelpro.com/
+# http://code.google.com/p/sequel-pro/
+#
+# Host: 127.0.0.1 (MySQL 5.5.25)
+# Database: sirius
+# Generation Time: 2012-11-04 21:03:40 +0000
+# ************************************************************
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -8,6 +20,8 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
+# Dump of table countries
+# ------------------------------------------------------------
 
 CREATE TABLE `countries` (
   `iso` char(2) NOT NULL,
