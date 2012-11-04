@@ -2,7 +2,7 @@
 
 namespace DelCountriesFlags\Mapper;
 
-use DelCountriesFlags\Mapper\AbstractDbMapper;
+use ZfcBase\Mapper\AbstractDbMapper;
 use DelCountriesFlags\Entity\CountryInterface as CountryEntityInterface;
 
 class Country extends AbstractDbMapper implements CountryInterface
@@ -11,21 +11,34 @@ class Country extends AbstractDbMapper implements CountryInterface
 
     public function getCountryById($countryid)
     {
-    	$select = $this->getSelect()
-                       ->where(array('countryid' => $countryid));
-
-        $entity = $this->select($select)->current();
-        $this->getEventManager()->trigger('find', $this, array('entity' => $entity));
-        return $entity;
+    	return $this->getBy('countryid');
     }
     
     public function findByEmail($email)
     {
-        $select = $this->getSelect()
-                       ->where(array('email' => $countryid));
+        return $this->getBy('email');
+    }
+    
+    public function getCountryByCapsName()
+    {
+        return $this->getBy('name');
+    }
+	public function getCountryByISO()
+	{
+        return $this->getBy('iso');
+    }
+	public function getCountryByNumCode()
+    {
+        return $this->getBy('numcode');
+    }
+	
+	private function getBy($whatever)
+	{
+		$select = $this->getSelect()
+                       ->where(array($whatever => $countryid));
 
         $entity = $this->select($select)->current();
         $this->getEventManager()->trigger('find', $this, array('entity' => $entity));
         return $entity;
-    }
+	}
 }
