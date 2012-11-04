@@ -8,7 +8,6 @@ return array(
 	'service_manager' => array(
         'aliases' => array(
             'delcountriesflags_zend_db_adapter' => 'Zend\Db\Adapter\Adapter',
-    		'delcountriesflags_service' => 'DelCountriesFlags\Service'
         ),
     ),
     'routes' => array(),
