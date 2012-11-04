@@ -29,7 +29,7 @@ class Country extends EventProvider implements ServiceManagerAwareInterface
      */
     public function getCountry($id)
     {
-    	return $this->getCountryMapper()->findByID($id);
+    	return $this->getCountryMapper()->getCountryByID($id);
     }
 
     /**
