@@ -2,15 +2,7 @@
 
 namespace DelCountriesFlags;
 
-use Zend\ModuleManager\ModuleManager;
-use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
-use Zend\ModuleManager\Feature\ConfigProviderInterface;
-use Zend\ModuleManager\Feature\ServiceProviderInterface;
-
-class Module implements
-    AutoloaderProviderInterface,
-    ConfigProviderInterface,
-    ServiceProviderInterface
+class Module 
 {
     public function getAutoloaderConfig()
     {
@@ -31,7 +23,7 @@ class Module implements
         return include __DIR__ . '/config/module.config.php';
     }
 
-    public function getViewHelperConfig()
+   /* public function getViewHelperConfig()
     {
         return array(
             'factories' => array(
@@ -40,21 +32,11 @@ class Module implements
                     $viewHelper = new View\Helper\delCountriesFlagsName;
                     return $viewHelper;
                 },
-                'delCountriesFlagsTiny' => function ($sm) {
+                'delCountriesFlagsFlag' => function ($sm) {
                     $locator = $sm->getServiceLocator();
-                    $viewHelper = new View\Helper\delCountriesFlagsTiny;
+                    $viewHelper = new View\Helper\delCountriesFlagsFlag;
                     return $viewHelper;
-                },
-                'delCountriesFlagsSmall' => function ($sm) {
-                    $locator = $sm->getServiceLocator();
-                    $viewHelper = new View\Helper\delCountriesFlagsSmall;
-                    return $viewHelper;
-                },
-                'delCountriesFlagsLarge' => function ($sm) {
-                    $locator = $sm->getServiceLocator();
-                    $viewHelper = new View\Helper\delCountriesFlagsSmall;
-                    return $viewHelper;
-                },
+                }
             ),
         );
 
@@ -66,5 +48,5 @@ class Module implements
             'invokables' => array(
                 'del_countries_flags_service'              => 'DelCountriesFlags\Service\CountriesFlags',
             ));
-    }
+    }*/
 }

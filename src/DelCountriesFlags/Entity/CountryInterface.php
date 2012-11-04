@@ -1,11 +1,11 @@
-<?php 
+<?php
 
 namespace DelCountriesFlags\Entity;
 
-class Country implements CountryInterface
+interface CountryInterface
 {
-	/**
-     * Get id.
+    /**
+     * Get country's id.
      *
      * @return string
      */
