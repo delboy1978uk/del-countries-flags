@@ -1,6 +1,8 @@
 <?php
 
 namespace DelCountriesFlags\Mapper;
+
+use ZfcBase\Mapper\AbstractDbMapper;
 use DelCountriesFlags\Entity\CountryInterface as CountryEntityInterface;
 
 class Country extends AbstractDbMapper implements CountryInterface
