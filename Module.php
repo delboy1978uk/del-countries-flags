@@ -23,25 +23,7 @@ class Module
         return include __DIR__ . '/config/module.config.php';
     }
     
-	public function getServiceConfig()
-    {
-        return array
-        (
-            
-            'factories' => array(
-    
-    			'delcountriesflags_mapper' => function ($sm) 
-        		{
-                    $mapper = new Mapper\Country();
-                    $mapper->setDbAdapter($sm->get('zfcuser_zend_db_adapter'));
-                    $entityClass = $options->getUserEntityClass();
-                    $mapper->setEntityPrototype(new $entityClass);
-                    $mapper->setHydrator(new Mapper\UserHydrator());
-                    return $mapper;
-                },
-            ),
-        );
-    }
+
 
    /* public function getViewHelperConfig()
     {
@@ -66,24 +48,19 @@ class Module
     {
         return array(
             'invokables' => array(
-                'del_countries_flags_service'              => 'DelCountriesFlags\Service\Country',
+                'delcountriesflags_service'              => 'DelCountriesFlags\Service\Country',
             ),
             'factories' => array(
 
-                'del_countries_flags_module_options' => function ($sm) {
+                'delcountriesflags_module_options' => function ($sm) {
                     $config = $sm->get('Config');
-                    return new Options\ModuleOptions(isset($config['del_countries_flags']) ? $config['del_countries_flags'] : array());
+                    return new Options\ModuleOptions(isset($config['delcountriesflags']) ? $config['delcountriesflags'] : array());
                 },
                
-                'del_countries_flags_country_hydrator' => function ($sm) {
-                    $hydrator = new \Zend\Stdlib\Hydrator\ClassMethods();
-                    return $hydrator;
-                },
-
-                'del_countries_flags_country_mapper' => function ($sm) {
-                    $options = $sm->get('del_countries_flags_module_options');
+                'delcountriesflags_mapper' => function ($sm) {
+                    $options = $sm->get('delcountriesflags_module_options');
                     $mapper = new Mapper\User();
-                    $mapper->setDbAdapter($sm->get('del_countries_flags_zend_db_adapter'));
+                    $mapper->setDbAdapter($sm->get('delcountriesflags_zend_db_adapter'));
                     $entityClass = $options->getUserEntityClass();
                     $mapper->setEntityPrototype(new $entityClass);
                     $mapper->setHydrator(new Mapper\UserHydrator());
