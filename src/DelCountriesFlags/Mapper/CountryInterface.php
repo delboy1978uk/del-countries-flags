@@ -4,9 +4,9 @@ namespace DelCountriesFlags\Mapper;
 
 interface CountryInterface
 {
-    public function getCountryById();
-	public function getCountryByName();
-    public function getCountryByCapsName();
-	public function getCountryByISO();
-	public function getCountryByNumCode();
+    public function getCountryById($countryid);
+	public function getCountryByName($country);
+    public function getCountryByCapsName($name);
+	public function getCountryByISO($iso);
+	public function getCountryByNumCode($numcode);
 }

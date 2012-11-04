@@ -11,31 +11,31 @@ class Country extends AbstractDbMapper implements CountryInterface
 
     public function getCountryById($countryid)
     {
-    	return $this->getBy('countryid');
+    	return $this->getBy('countryid',$countryid);
     }
     
     public function findByEmail($email)
     {
-        return $this->getBy('email');
+        return $this->getBy('email',$email);
     }
     
-    public function getCountryByCapsName()
+    public function getCountryByCapsName($name)
     {
-        return $this->getBy('name');
+        return $this->getBy('name',$name);
     }
-	public function getCountryByISO()
+	public function getCountryByISO($iso)
 	{
-        return $this->getBy('iso');
+        return $this->getBy('iso',$iso);
     }
-	public function getCountryByNumCode()
+	public function getCountryByNumCode($numcode)
     {
-        return $this->getBy('numcode');
+        return $this->getBy('numcode',$numcode);
     }
 	
-	private function getBy($whatever)
+	private function getBy($whatever, $value)
 	{
 		$select = $this->getSelect()
-                       ->where(array($whatever => $countryid));
+                       ->where(array($whatever => $value));
 
         $entity = $this->select($select)->current();
         $this->getEventManager()->trigger('find', $this, array('entity' => $entity));
