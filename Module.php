@@ -23,7 +23,25 @@ class Module
         return include __DIR__ . '/config/module.config.php';
     }
     
+	public function getServiceConfig()
+    {
+        return array
+        (
+            
+            'factories' => array(
     
+    			'delcountriesflags_mapper' => function ($sm) 
+        		{
+                    $mapper = new Mapper\Country();
+                    $mapper->setDbAdapter($sm->get('zfcuser_zend_db_adapter'));
+                    $entityClass = $options->getUserEntityClass();
+                    $mapper->setEntityPrototype(new $entityClass);
+                    $mapper->setHydrator(new Mapper\UserHydrator());
+                    return $mapper;
+                },
+            ),
+        );
+    }
 
    /* public function getViewHelperConfig()
     {
