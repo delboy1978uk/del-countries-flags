@@ -25,15 +25,12 @@ class Country extends EventProvider implements ServiceManagerAwareInterface
      * getCountry
      * 
      * @param string $id
-     * @throws Exception
+     * @throws Exception\
      */
     public function getCountry($id)
     {
     	
     }
-    
-    
-    
 
     /**
      * getCountryMapper
