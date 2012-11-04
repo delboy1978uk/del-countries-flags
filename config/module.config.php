@@ -9,14 +9,5 @@ return array(
         'aliases' => array(
             'delcountriesflags_zend_db_adapter' => 'Zend\Db\Adapter\Adapter',
         ),
-    ),
-    'routes' => array(),
-    'controllers' => array(
-        'invokables' => array(
-            
-        ),
-    ),
-    'router' => array(
-        'routes' => array()
-    ),
+    )
 );
