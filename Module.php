@@ -59,11 +59,11 @@ class Module
                
                 'delcountriesflags_mapper' => function ($sm) {
                     $options = $sm->get('delcountriesflags_module_options');
-                    $mapper = new Mapper\User();
+                    $mapper = new Mapper\Country();
                     $mapper->setDbAdapter($sm->get('delcountriesflags_zend_db_adapter'));
-                    $entityClass = $options->getUserEntityClass();
+                    $entityClass = $options->getCountryEntityClass();
                     $mapper->setEntityPrototype(new $entityClass);
-                    $mapper->setHydrator(new Mapper\UserHydrator());
+                    $mapper->setHydrator(new Mapper\CountryHydrator());
                     return $mapper;
                 },
             ),
