@@ -25,7 +25,7 @@ class Country extends EventProvider implements ServiceManagerAwareInterface
      * getCountry
      * 
      * @param string $id
-     * @throws Exception\
+     * @throws Exception
      */
     public function getCountry($id)
     {
@@ -40,7 +40,7 @@ class Country extends EventProvider implements ServiceManagerAwareInterface
     public function getCountryMapper()
     {
         if (null === $this->countryMapper) {
-            $this->userMapper = $this->getServiceManager()->get('delcountriesflags_mapper');
+            $this->countryMapper = $this->getServiceManager()->get('delcountriesflags_mapper');
         }
         return $this->countryMapper;
     }
