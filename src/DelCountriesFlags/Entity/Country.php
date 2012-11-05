@@ -89,7 +89,7 @@ class Country implements CountryInterface
      *
      * @return string
      */
-    public function getFlag($email)
+    public function getFlag()
 	{
     	return $this->flag;
     }
@@ -120,7 +120,7 @@ class Country implements CountryInterface
      */
     public function setNumcode($numcode)
     {
-    	$this->iso = $iso;
+    	$this->numcode = $numcode;
     	return $this;
     }
     
@@ -136,7 +136,7 @@ class Country implements CountryInterface
     
 	/**
      * set Country
-     * @param string $iso
+     * @param string $country
      */
     public function setCountry($country)
     {
