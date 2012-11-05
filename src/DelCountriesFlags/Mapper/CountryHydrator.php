@@ -21,7 +21,6 @@ class CountryHydrator extends ClassMethods
         }
         /* @var $object CountryInterface*/
         $data = parent::extract($object);
-        $data = $this->mapField('countryid', 'countryid', $data);
         return $data;
     }
 

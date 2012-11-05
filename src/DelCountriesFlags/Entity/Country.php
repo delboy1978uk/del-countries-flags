@@ -93,4 +93,64 @@ class Country implements CountryInterface
 	{
     	return $this->flag;
     }
+    
+    /**
+     * set ISO
+     * @param string $iso
+     */
+    public function setIso($iso)
+    {
+    	$this->iso = $iso;
+    	return $this;
+    }
+    
+	/**
+     * set Country id
+     * @param string $iso
+     */
+    public function setCountryid($id)
+    {
+    	$this->id = $id;
+    	return $this;
+    }
+    
+	/**
+     * set Numcode
+     * @param int $numcode
+     */
+    public function setNumcode($numcode)
+    {
+    	$this->iso = $iso;
+    	return $this;
+    }
+    
+	/**
+     * set Name
+     * @param string $name
+     */
+    public function setName($name)
+    {
+    	$this->name = $name;
+    	return $this;
+    }
+    
+	/**
+     * set Country
+     * @param string $iso
+     */
+    public function setCountry($country)
+    {
+    	$this->country = $country;
+    	return $this;
+    }
+    
+	/**
+     * set Flag
+     * @param string $flag
+     */
+    public function setFlag($flag)
+    {
+    	$this->flag = $flag;
+    	return $this;
+    }
 }
