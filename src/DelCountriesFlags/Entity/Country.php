@@ -110,7 +110,7 @@ class Country implements CountryInterface
      */
     public function setCountryid($id)
     {
-    	$this->id = $id;
+    	$this->countryid = $id;
     	return $this;
     }
     
