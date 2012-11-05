@@ -39,7 +39,7 @@ class Country implements CountryInterface
      *
      * @return string
      */
-    public function getCountryId()
+    public function getCountryid()
     {
     	return $this->countryid;
     }
@@ -49,7 +49,7 @@ class Country implements CountryInterface
      *
      * @return string
      */
-    public function getCountryName()
+    public function getCountry()
     {
     	return $this->country;
     }
@@ -59,7 +59,7 @@ class Country implements CountryInterface
      *
      * @return string
      */
-    public function getCountryNameCaps()
+    public function getName()
     {
     	return $this->name;
     }
@@ -69,7 +69,7 @@ class Country implements CountryInterface
      *
      * @return string
      */
-    public function getCountryISO()
+    public function getIso()
     {
     	return $this->iso;
     }
@@ -79,7 +79,7 @@ class Country implements CountryInterface
      *
      * @return int
      */
-    public function getNumCode()
+    public function getNumcode()
 	{
     	return $this->numcode;
     }
