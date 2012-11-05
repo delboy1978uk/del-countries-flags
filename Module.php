@@ -66,6 +66,10 @@ class Module
                     $mapper->setHydrator(new Mapper\CountryHydrator());
                     return $mapper;
                 },
+                'delcountriesflags_hydrator' => function ($sm) {
+                    $hydrator = new \Zend\Stdlib\Hydrator\ClassMethods();
+                    return $hydrator;
+                },
             ),
         );
     }

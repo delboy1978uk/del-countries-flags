@@ -19,9 +19,9 @@ class CountryHydrator extends ClassMethods
         if (!$object instanceof CountryEntityInterface) {
             throw new Exception\InvalidArgumentException('$object must be an instance of DelCountriesFlags\Entity\CountryInterface');
         }
-        /* @var $object UserInterface*/
+        /* @var $object CountryInterface*/
         $data = parent::extract($object);
-        $data = $this->mapField('id', 'id', $data);
+        $data = $this->mapField('countryid', 'countryid', $data);
         return $data;
     }
 
@@ -38,7 +38,6 @@ class CountryHydrator extends ClassMethods
         if (!$object instanceof CountryEntityInterface) {
             throw new Exception\InvalidArgumentException('$object must be an instance of DelCountriesFlags\Entity\CountryInterface');
         }
-        $data = $this->mapField('id', 'id', $data);
         return parent::hydrate($data, $object);
     }
 
