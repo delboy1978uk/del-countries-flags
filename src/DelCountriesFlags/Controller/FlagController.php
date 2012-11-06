@@ -19,7 +19,7 @@ class FlagController extends AbstractActionController
      */
     protected $country;
 	
-	public function largeAction()
+	public function indexAction()
 	{
 		$id = $this->getRequest->getQuery()->get('country');
 		$size = $this->getRequest->getQuery()->get('size');
@@ -42,7 +42,7 @@ class FlagController extends AbstractActionController
 				break;
 		}
 		fopen(__DIR__.'/../Flags'.$path.File);
-		die( 'yes');
+		return $this->response;
 	}
 	
 	public function getCountryService()

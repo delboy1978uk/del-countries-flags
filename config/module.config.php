@@ -1,5 +1,11 @@
 <?php
+
 return array(
+	'controllers' => array(
+        'invokables' => array(
+            'DelCountriesFlags\Controller\Flag' => 'DelCountriesFlags\Controller\FlagController',
+        ),
+    ),
    'view_manager' => array(
         'template_path_stack' => array(
             'delcountriesflags' => __DIR__ . '/../view',
@@ -11,18 +17,22 @@ return array(
         ),
     ),
     'router' => array(
-        'routes' => array(
-            'delcountriesflags' => array(
-                'type' => 'Literal',
-                'priority' => 1000,
-                'options' => array(
-                    'route' => '/flag/:size/:country',
-                    'defaults' => array(
-                        'controller' => 'flag',
-                        'action'     => 'index',
-                    ),
-                ),
-            ),
-        ),
+	     'routes' => array(
+	        __NAMESPACE__ => array(
+	            'type'    => 'segment',
+	            'options' => array(
+	                'route' => '/flag[/:size][/:country]',
+	                'constraints' => array(
+                        'size' => '[a-z][a-z]*',
+                        'country'     => '[A-Z]*',
+	                ),
+	                'defaults' => array(
+	                    'controller' => 'DelCountriesFlags\Controller\Flag',
+	                    'action'     => 'index',
+	                ),
+	            ),
+	        ),
+	    ),
+        
      )   
 );
