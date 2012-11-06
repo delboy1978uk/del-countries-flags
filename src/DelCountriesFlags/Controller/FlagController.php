@@ -21,8 +21,8 @@ class FlagController extends AbstractActionController
 	
 	public function indexAction()
 	{
-		$id = $this->getRequest->getQuery()->get('country');
-		$size = $this->getRequest->getQuery()->get('size');
+		$id = $this->params('country');
+		$size = $this->params('size');
 		$this->country = $this->getCountryService()->getCountry($id);
 		$flag = $this->country->getFlag();
 		switch($size)
@@ -41,7 +41,13 @@ class FlagController extends AbstractActionController
 				$path = '/small/';
 				break;
 		}
-		fopen(__DIR__.'/../Flags'.$path.File);
+		$filename = __DIR__.'/../Flags'.$path.File;
+		if(file_exists($filename))
+		{
+			$flag = imagecreatefrompng($filename);
+			$this->response->getHeaders()->addHeaders(array('Content-Type' => 'image/png'));
+			$this->response->setContent(imagepng($flag));
+		}
 		return $this->response;
 	}
 	
