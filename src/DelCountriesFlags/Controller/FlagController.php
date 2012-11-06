@@ -41,7 +41,7 @@ class FlagController extends AbstractActionController
 				$path = '/small/';
 				break;
 		}
-		$filename = __DIR__.'/../Flags'.$path.$file;
+		$filename = __DIR__.'/../Flags'.$path.$flag;
 		if(file_exists($filename))
 		{
 			$flag = imagecreatefrompng($filename);
