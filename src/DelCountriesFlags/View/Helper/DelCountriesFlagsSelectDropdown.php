@@ -34,11 +34,8 @@ class DelCountriesFlagsSelectDropdown extends AbstractHelper implements ServiceM
 			//need to fetch top lvl ServiceManager
 	        $sm = $sm->getServiceLocator();
 	        $service = $sm->get('delcountriesflags_service');
-	        //$countries = $service->getCountries();
-	        $select = $service->
-		
-	
-	        $vm = new ViewModel(array(
+	        $select = $service->getCountriesFormSelectElement();
+			$vm = new ViewModel(array(
 	            'select' => $select,
 	        ));
 	        $viewfile = $this->viewTemplate;
