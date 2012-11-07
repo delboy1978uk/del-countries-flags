@@ -45,7 +45,7 @@ class Module
                 'delCountriesFlagsSelectDropdown' => function ($sm) {
                     $locator = $sm->getServiceLocator();
                     $viewHelper = new View\Helper\DelCountriesFlagsSelectDropdown();
-                    $viewHelper->setViewTemplate($locator->get('delcountriesflags_module_options')->getCountrySelectDropdownViewTemplate());
+                    $viewHelper->setViewTemplate($locator->get('delcountriesflags_module_options')->getCountriesFlagsSelectDropdownViewTemplate());
                     return $viewHelper;
                 }
             ),
