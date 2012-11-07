@@ -25,25 +25,28 @@ class Module
     
 
 
-   /* public function getViewHelperConfig()
+   public function getViewHelperConfig()
     {
         return array(
             'factories' => array(
                 'delCountriesFlagsName' => function ($sm) {
                     $locator = $sm->getServiceLocator();
-                    $viewHelper = new View\Helper\delCountriesFlagsName;
+                    $viewHelper = new View\Helper\DelCountriesFlagsName;
+                    $template = $locator->get('delcountriesflags_module_options')->getCountryNameViewTemplate();
+                    $viewHelper->setViewTemplate($template);
                     return $viewHelper;
                 },
                 'delCountriesFlagsFlag' => function ($sm) {
                     $locator = $sm->getServiceLocator();
-                    $viewHelper = new View\Helper\delCountriesFlagsFlag;
+                    $viewHelper = new View\Helper\DelCountriesFlagsFlag;
+                    $viewHelper->setViewTemplate($locator->get('delcountriesflags_module_options')->getCountryFlagViewTemplate());
                     return $viewHelper;
                 }
             ),
         );
 
     }
-*/
+
     public function getServiceConfig()
     {
         return array(
@@ -52,12 +55,15 @@ class Module
             ),
             'factories' => array(
 
-                'delcountriesflags_module_options' => function ($sm) {
+                'delcountriesflags_module_options' => function ($sm) 
+            	{
                     $config = $sm->get('Config');
+                    //die(print_r($config['delcountriesflags']));
                     return new Options\ModuleOptions(isset($config['delcountriesflags']) ? $config['delcountriesflags'] : array());
                 },
                
-                'delcountriesflags_mapper' => function ($sm) {
+                'delcountriesflags_mapper' => function ($sm) 
+                {
                     $options = $sm->get('delcountriesflags_module_options');
                     $mapper = new Mapper\Country();
                     $mapper->setDbAdapter($sm->get('delcountriesflags_zend_db_adapter'));
@@ -66,7 +72,8 @@ class Module
                     $mapper->setHydrator(new Mapper\CountryHydrator());
                     return $mapper;
                 },
-                'delcountriesflags_hydrator' => function ($sm) {
+                'delcountriesflags_hydrator' => function ($sm) 
+                {
                     $hydrator = new \Zend\Stdlib\Hydrator\ClassMethods();
                     return $hydrator;
                 },

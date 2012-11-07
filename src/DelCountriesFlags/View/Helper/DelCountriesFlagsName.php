@@ -1,29 +1,83 @@
 <?php
-
 namespace DelCountriesFlags\View\Helper;
 
-use DelCountriesFlags\Entity\Country;
-
 use Zend\View\Helper\AbstractHelper;
-use DelCountriesFlags\Entity\CountryInterface as Country;
+use Zend\View\Model\ViewModel;
+use Zend\ServiceManager\ServiceManagerAwareInterface;
+use Zend\ServiceManager\ServiceManager;
 
-class DelCountriesFlagsName extends AbstractHelper
+class DelCountriesFlagsName extends AbstractHelper implements ServiceManagerAwareInterface
 {
-    /**
+	/**
+     * $var string template used for view
+     */
+    protected $viewTemplate;
+
+        /**
+     * @var ServiceManager
+     */
+    protected $serviceManager;
+    
+	/**
      * __invoke
      *
+     * @param string $id //eg GBR, USA etc
      * @access public
-     * @return String
+     * @return string
      */
-    public function __invoke($country = null)
+    public function __invoke($id = null)
     {
-        if (null === $country) { return false; }
-        if (!$country instanceof Country) 
+        if($id)
         {
-            throw new \DelCountriesMaps\Exception\DomainException( '$country is not an instance of Country', 500);
+	    	$sm = $this->getServiceManager();
+			//need to fetch top lvl ServiceManager
+	        $sm = $sm->getServiceLocator();
+	        $service = $sm->get('delcountriesflags_service');
+	        $country = $service->getCountry($id);
+	
+	        $vm = new ViewModel(array(
+	            'country' => $country,
+	        ));
+	        $viewfile = $this->viewTemplate;
+	        $vm->setTemplate($viewfile);
+	
+	        return $this->getView()->render($vm);
         }
+        else
+        {
+        	return false;
+        }
+    }
+	
+	/**
+     * @param string $viewTemplate
+     * @return NewUsers
+     */
+    public function setViewTemplate($viewTemplate)
+    {
+        $this->viewTemplate = $viewTemplate;
+        return $this;
+    }
 
-        $countryName = $country->getCountry();
-		return $countryName;
+    /**
+     * Retrieve service manager instance
+     *
+     * @return ServiceManager
+     */
+    public function getServiceManager()
+    {
+        return $this->serviceManager;
+    }
+
+    /**
+     * Set service manager instance
+     *
+     * @param ServiceManager $locator
+     * @return DelCountriesFlagsName
+     */
+    public function setServiceManager(ServiceManager $serviceManager)
+    {
+        $this->serviceManager = $serviceManager;
+        return $this;
     }
 }

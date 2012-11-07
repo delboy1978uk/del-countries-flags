@@ -17,3 +17,7 @@ tiny
 small
 medium
 large
+
+
+Flag images from <a href="http://www.senojflags.com">Flags of all Countries</a>.
+If you use these flags please give them a link back to their site!

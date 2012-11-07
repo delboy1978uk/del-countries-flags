@@ -44,9 +44,8 @@ class FlagController extends AbstractActionController
 		$filename = __DIR__.'/../Flags'.$path.$flag;
 		if(file_exists($filename))
 		{
-			$flag = imagecreatefrompng($filename);
 			$this->response->getHeaders()->addHeaders(array('Content-Type' => 'image/png'));
-			$this->response->setContent(imagepng($flag));
+			$this->response->setContent(file_get_contents($filename));
 		}
 		return $this->response;
 	}

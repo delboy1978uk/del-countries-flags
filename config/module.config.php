@@ -16,7 +16,8 @@ return array(
             'delcountriesflags_zend_db_adapter' => 'Zend\Db\Adapter\Adapter',
         ),
     ),
-    'router' => array(
+    
+   'router' => array(
 	     'routes' => array(
 	        __NAMESPACE__ => array(
 	            'type'    => 'segment',
