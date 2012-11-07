@@ -7,6 +7,7 @@ use Zend\ServiceManager\ServiceManager;
 use Zend\Stdlib\Hydrator\ClassMethods;
 use ZfcBase\EventManager\EventProvider;
 use DelCountriesFlags\Mapper\CountryInterface as CountryMapperInterface;
+use DelCountriesFlags\Form\Element;
 
 class Country extends EventProvider implements ServiceManagerAwareInterface
 {
@@ -30,6 +31,11 @@ class Country extends EventProvider implements ServiceManagerAwareInterface
     public function getCountry($id)
     {
     	return $this->getCountryMapper()->getCountryByID($id);
+    }
+    
+    public function getCountriesFormSelectElement()
+    {
+    	return $this->getServiceManager()->get('DelCountriesFlags\Form\Element\Select');
     }
 
     /**

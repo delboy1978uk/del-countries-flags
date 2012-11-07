@@ -18,6 +18,9 @@ class ModuleOptions extends AbstractOptions implements CountryServiceOptionsInte
     /** @var string */
     protected $countryFlagViewTemplate = 'del-countries-flags/country-flag.phtml';
     
+    /** @var string */
+    protected $countrySelectDropdownViewTemplate = 'del-countries-flags/dropdown.phtml';
+    
     
     /**
      * set country entity class name
@@ -83,6 +86,28 @@ class ModuleOptions extends AbstractOptions implements CountryServiceOptionsInte
     public function getCountryFlagViewTemplate()
     {
         return $this->countryFlagViewTemplate;
+    }
+    
+	/**
+     * set the view template for the country
+     *
+     * @param string $countrySelectDropdownViewTemplate
+     * @return ModuleOptions
+     */
+    public function setCountriesFlagsSelectDropdownViewTemplate($countrySelectDropdownViewTemplate)
+    {
+        $this->countrySelectDropdownViewTemplate = $countrySelectDropdownViewTemplate;
+        return $this;
+    }
+
+    /**
+     * get the view template for the image
+     *
+     * @return string
+     */
+    public function getCountriesFlagsSelectDropdownViewTemplate()
+    {
+        return $this->countrySelectDropdownViewTemplate;
     }
 
     

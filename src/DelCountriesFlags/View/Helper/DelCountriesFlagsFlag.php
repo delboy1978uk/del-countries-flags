@@ -16,6 +16,7 @@ class DelCountriesFlagsFlag extends AbstractHelper
      * __invoke
      *
      * @param string $id //eg GBR, USA etc
+     * @param string $size //eg tiny, small, medium, large
      * @access public
      * @return string
      */

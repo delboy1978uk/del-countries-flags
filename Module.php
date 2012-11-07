@@ -41,6 +41,12 @@ class Module
                     $viewHelper = new View\Helper\DelCountriesFlagsFlag;
                     $viewHelper->setViewTemplate($locator->get('delcountriesflags_module_options')->getCountryFlagViewTemplate());
                     return $viewHelper;
+                },
+                'delCountriesFlagsSelectDropdown' => function ($sm) {
+                    $locator = $sm->getServiceLocator();
+                    $viewHelper = new View\Helper\DelCountriesFlagsDropdown();
+                    $viewHelper->setViewTemplate($locator->get('delcountriesflags_module_options')->getCountrySelectDropdownViewTemplate());
+                    return $viewHelper;
                 }
             ),
         );
@@ -52,6 +58,7 @@ class Module
         return array(
             'invokables' => array(
                 'delcountriesflags_service'              => 'DelCountriesFlags\Service\Country',
+        		'DelCountriesFlags\Form\Element\Select'   => 'DelCountriesFlags\Form\Element\Select',
             ),
             'factories' => array(
 
