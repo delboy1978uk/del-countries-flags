@@ -13,10 +13,10 @@ class ModuleOptions extends AbstractOptions implements CountryServiceOptionsInte
     protected $countryEntityClass = 'DelCountriesFlags\Entity\Country';
     
     /** @var string */
-    protected $countryNameViewTemplate = 'del-countries-flags/country.phtml';
+    protected $countryNameViewTemplate = 'del-countries-flags/country-name.phtml';
 
     /** @var string */
-    protected $countryFlagViewTemplate = 'del-countries-flags/flag.phtml';
+    protected $countryFlagViewTemplate = 'del-countries-flags/country-flag.phtml';
     
     
     /**
