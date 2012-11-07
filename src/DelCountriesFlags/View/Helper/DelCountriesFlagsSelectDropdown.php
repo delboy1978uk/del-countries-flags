@@ -28,7 +28,7 @@ class DelCountriesFlagsSelectDropdown extends AbstractHelper implements ServiceM
      */
     public function __invoke($selectedid = null)
     {
-        if($id)
+        if(isset($id))
         {
 	    	$sm = $this->getServiceManager();
 			//need to fetch top lvl ServiceManager
