@@ -33,6 +33,16 @@ class Country extends EventProvider implements ServiceManagerAwareInterface
     	return $this->getCountryMapper()->getCountryByID($id);
     }
     
+	/**
+     * getAllCountries
+     * 
+     * @throws Exception
+     */
+    public function getAllCountries()
+    {
+    	return $this->getCountryMapper()->findAll();
+    }
+    
     public function getCountriesFormSelectElement()
     {
     	$select =  $this->getServiceManager()->get('DelCountriesFlags\Form\Element\Select');
