@@ -44,8 +44,7 @@ class Country extends AbstractDbMapper implements CountryInterface
 	
 	public function findAll($limit= null, $orderBy = null, $sort = 'ASC')
     {
-        $select = $this->getSelect()
-                       ->from($this->tableName);
+        $select = $this->getSelect();
 
         if($orderBy) {
             $select->order($orderBy . ' ' . $sort);

@@ -5,7 +5,6 @@ use Zend\View\Helper\AbstractHelper;
 use Zend\View\Model\ViewModel;
 use Zend\ServiceManager\ServiceManagerAwareInterface;
 use Zend\ServiceManager\ServiceManager;
-use Zend\Form\Element;
 
 class DelCountriesFlagsSelectDropdown extends AbstractHelper implements ServiceManagerAwareInterface
 {
@@ -22,31 +21,18 @@ class DelCountriesFlagsSelectDropdown extends AbstractHelper implements ServiceM
 	/**
      * __invoke
      *
-     * @param string $id //eg GBR, USA etc
+     * @param string $selected //eg GBR, USA etc
      * @access public
      * @return string
      */
-    public function __invoke($selectedid = null)
+    public function __invoke($selected = null)
     {
-        if(isset($id))
-        {
+        
 	    	$sm = $this->getServiceManager();
-			//need to fetch top lvl ServiceManager
-	        $sm = $sm->getServiceLocator();
+			$sm = $sm->getServiceLocator();
 	        $service = $sm->get('delcountriesflags_service');
 	        $select = $service->getCountriesFormSelectElement();
-			$vm = new ViewModel(array(
-	            'select' => $select,
-	        ));
-	        $viewfile = $this->viewTemplate;
-	        $vm->setTemplate($viewfile);
-	
-	        return $this->getView()->render($vm);
-        }
-        else
-        {
-        	return false;
-        }
+			return $select;
     }
 	
 	/**

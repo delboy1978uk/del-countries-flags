@@ -61,7 +61,7 @@ class Module
         		'DelCountriesFlags\Form\Element\Select'   => 'DelCountriesFlags\Form\Element\Select',
             ),
             'factories' => array(
-
+            
                 'delcountriesflags_module_options' => function ($sm) 
             	{
                     $config = $sm->get('Config');
